@@ -22,18 +22,17 @@ const Rabbit = () => {
       case 25:
         setEyeSize("11vw");
         setDrugacting("Epinephrine");
-
         break;
       case 49:
         setEyeSize("11.5vw");
         setDrugacting("Atropine");
         break;
       case 49.5:
-        setEyeSize("12vw");
+        setEyeSize("10vw");
         setDrugacting("Ephedrine");
         break;
       case 40:
-        setEyeSize("6vw");
+        setEyeSize("5vw");
         setDrugacting("Physostigmine");
         break;
       case 45:
@@ -48,6 +47,32 @@ const Rabbit = () => {
       default:
         setDrugacting("None");
         setEyeSize("8vw");
+        break;
+    }
+  };
+  const handleonTorch_cotton = () => {
+    switch (drugacting) {
+      case "Epinephrine":
+        torchactive === true ? setEyeSize("11vw") : setEyeSize("9.5vw");
+        // cottonactive === true ? 
+        break;
+      case "Atropine":
+        torchactive === true ? setEyeSize("11.5vw") : setEyeSize("11.5vw");
+        break;
+      case "Ephedrine":
+        torchactive === true ? setEyeSize("10vw") : setEyeSize("8vw");
+        break;
+      case "Physostigmine":
+        torchactive === true ? setEyeSize("5vw") : setEyeSize("3vw");
+        break;
+      case "Lignocaine":
+        torchactive === true ? setEyeSize("8vw") : setEyeSize("5vw");
+        break;
+      case "Saline":
+        torchactive === true ? setEyeSize("8vw") : setEyeSize("5vw");
+        break;
+
+      default:
         break;
     }
   };
@@ -116,7 +141,7 @@ const Rabbit = () => {
                 <MenuItem value={25}>Epinephrine</MenuItem>
                 <MenuItem value={49}>Atropine</MenuItem>
                 <MenuItem value={49.5}>Ephedrine</MenuItem>
-                <MenuItem value={40}>Physostigmine</MenuItem>
+                <MenuItem value={25.5}>Physostigmine</MenuItem>
                 <MenuItem value={45}>Lignocaine</MenuItem>
                 <MenuItem value={50.1}>Saline</MenuItem>
               </Select>
@@ -153,6 +178,7 @@ const Rabbit = () => {
               torchactive === false
                 ? setTorchactive(true)
                 : setTorchactive(false);
+              handleonTorch_cotton();
             }}
           >
             <div
@@ -170,6 +196,7 @@ const Rabbit = () => {
               cottonactive === false
                 ? setCottonactive(true)
                 : setCottonactive(false);
+              handleonTorch_cotton();
             }}
           >
             <div
